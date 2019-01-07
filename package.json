@@ -1,0 +1,14 @@
+{
+  "name": "electroncalculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "JP",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.0.0"
+  }
+}
