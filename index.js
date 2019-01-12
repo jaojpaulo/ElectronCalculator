@@ -2,15 +2,15 @@
 window.onload = function(){
     
     var btns =  document.querySelectorAll('button');
-    //var scn = document.getElementById('screen').getElementsByTagName('p')[0];
     var btnVal = null;
     var operators = ['+', '-', '*', '/'];
     var decimalAdded = false; 
 
     btns.forEach(function(btn) {
-        btn.addEventListener("click", function() {
+        btn.addEventListener("click", function(e) {
             
-            var input  = document.getElementById('screen').getElementsByTagName('p')[0];
+            //var input  = document.getElementById('screen').getElementsByTagName('p')[0];
+            var input  = document.querySelector("#screen");
             var inputVal = input.innerHTML;
             var btnVal = btn.innerHTML;
 
@@ -18,6 +18,23 @@ window.onload = function(){
             if (btnVal == 'C'){
                 input.innerHTML = '';
                 decimalAdded = false;
+            }
+
+            else if(btn.id == 'bkspc'){
+                
+                var hasDecimal = null; 
+                var newVal = null;
+
+                //To know if the old number was decimal
+                if(inputVal != null){
+                    hasDecimal = inputVal.search(".");    
+                    newVal = inputVal.substring(0, inputVal.length-1);
+                    
+                    if(newVal.search('.') == -1 && hasDecimal !=-1)
+                        decimalAdded = false;
+                    
+                    input.innerHTML = newVal;
+                }
             }
 
             else if(btnVal == '=') {
@@ -74,7 +91,7 @@ window.onload = function(){
                     decimalAdded = true;
                 }
             }
-            
+
             // if any other key is pressed, just append it
             else {
                 input.innerHTML += btnVal;
@@ -82,6 +99,7 @@ window.onload = function(){
             
             // prevent page jumps
             e.preventDefault();
+
 
         });
     });
