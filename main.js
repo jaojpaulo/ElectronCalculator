@@ -4,7 +4,12 @@ const url = require('url')
 let win
 
 function createWindow(){
-    win = new BrowserWindow({ width: 400, height: 600, resizable: false })
+    win = new BrowserWindow({ 
+        width: 400, 
+        height: 600, 
+        resizable: false,
+        icon: path.join(__dirname, 'img/windowIcon.png') 
+    })
     win.setMenu(null)
     win.loadURL(url.format({
         pathname:path.join(__dirname, 'index.html'),

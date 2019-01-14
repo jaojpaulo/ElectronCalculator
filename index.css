@@ -58,6 +58,16 @@ body, html{
     border: none;
     background-color: transparent;
     color: #fff;
+    font-size: 1.5em;
+    outline: none;
+}
+
+#numpad button:active{
+    border: #fff solid 1px;
+}
+
+#numpad button:focus{
+    outline: none;
 }
 
 #numpad .last_btns{
@@ -66,6 +76,6 @@ body, html{
 }
 
 #bkspc img{
-    width: 25%;
+    width: 35%;
     height: auto;
 }
